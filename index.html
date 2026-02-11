@@ -7,35 +7,35 @@
         * { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); transition: background-color 0.5s; }
         body { margin: 0; padding-bottom: 50px; font-family: sans-serif; }
         
-        /* 导航栏适配 */
+       
         .nav { background: rgba(255, 255, 255, 0.2); padding: 12px 20px; border-radius: 50px; margin: 20px auto; width: fit-content; display: flex; gap: 15px; text-shadow: none; flex-wrap: wrap; justify-content: center; }
         a { text-decoration: none; }
         .nav a { color: #ffff00; font-weight: bold; font-size: 16px; }
 
-        /* 音乐按钮 */
+       
         #musicBtn { animation: pulse 2s infinite; border-radius: 30px; text-shadow: none; background-color: #ffff00; color: #ff0000; border: none; padding: 12px 25px; font-weight: bold; cursor: pointer; font-size: 18px; }
         @keyframes pulse { 0% { transform: scale(1); } 70% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
-        /* 图片缩放效果 */
+       
         img { border-radius: 20px; margin: 10px; cursor: zoom-in; transition: 0.3s; }
         img:hover { transform: scale(1.1); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); z-index: 10; }
 
         /* --- Email 动图专项设置 --- */
         .email-gif {
-            width: 3%;             /* 电脑端默认 3% */
+            width: 2%;             
             border-radius: 0; 
-            transform: none !important; /* 强制禁止放大 */
+            transform: none !important; 
             cursor: default; 
             box-shadow: none !important;
         }
 
-        /* 手机端适配 (屏幕宽度小于 600px) */
+        
         @media screen and (max-width: 600px) {
             .email-gif {
-                width: 50% !important; /* 手机端放大到 50% */
+                width: 50% !important; 
             }
             #imageContainer img {
-                width: 40% !important; /* 手机端让网格图片也稍微大一点 */
+                width: 40% !important; 
             }
         }
 
@@ -96,18 +96,18 @@
     <audio id="bgMusic" loop><source src="./Bilder0/NewYearSong.mp3" type="audio/mpeg"></audio>
 
     <script>
-        // 黑暗模式记忆
+        
         if(localStorage.getItem('mode')==='dark') document.body.classList.add('dark-mode');
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
             localStorage.setItem('mode', document.body.classList.contains('dark-mode')?'dark':'light');
         }
 
-        // 灯箱功能
+        
         function openLightbox(src) { document.getElementById("lightboxImg").src = src; document.getElementById("lightbox").style.display = "flex"; }
         window.onscroll = function() { document.getElementById("backToTop").style.display = (window.pageYOffset > 300) ? "flex" : "none"; };
         
-        // 音乐切换
+        
         var audio = document.getElementById("bgMusic");
         var mBtn = document.getElementById("musicBtn");
         function toggleMusic() {
@@ -124,3 +124,4 @@
     </script>
 </body>
 </html>
+
