@@ -1,0 +1,65 @@
+@charset iso-8859-1
+body {  font-family: Arial, Helvetica, sans-serif; font-size: 85%}
+td {  font-family: Arial, Helvetica, sans-serif; font-size: 85%}
+.context {font-size:10px;} 
+.separator {height:1px;line-height:1px;font-size:1px;} 
+.RHead {font-size:10px;font-weight:bold;} 
+.datum {font-size:10px;color:#900000;line-height:normal;} 
+.navtree {font-size:10px;font-weight:bold;line-height:normal;} 
+.clear {line-height:normal;} 
+.textTitle {  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 12pt; font-weight: bold}
+.textSubTitle { font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 11pt; font-weight: bold}
+.textTitleLCY {  font-family: Comic Sans MS; font-size: 40pt; font-weight: bold}
+.textSubTitleLCY { font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 11pt; font-weight: bold}
+.textIngress { font-family: Arial, Helvetica, sans-serif; font-size: 11pt ; color: #73877d}
+.textBody {  font-size: 10pt; font-family: Arial, Helvetica, sans-serif}
+.textComment {  font-size: 9pt; font-family: Arial, Helvetica, sans-serif}
+.textCaption {  font-size: 10pt; font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif}
+.textLabel {  font-size: 10pt; font-weight: bold;  font-family: Arial, Helvetica, sans-serif}
+.newsDate {  font-family: Arial, Helvetica, sans-serif; color: #968C78; font-size: 10pt}
+.newslistTitle {  font-family: Arial, Helvetica, sans-serif; color: #FFFFFF; font-size: 10pt}
+.newsHeader {  font-family: Arial, Helvetica, sans-serif; font-size: 9pt}
+.colourBloodRed {  background-color: #96142d}
+.colourBurgundy {  background-color: #640023}
+.colourDeepBlue {  background-color: #002337}
+.colourSourGreen {  background-color: #aacd00}
+.colourLightGreyGreen {  background-color: #73877d}
+.colourLightBlueGreen {  background-color: #96b4b9}
+.colourSand {  background-color: #beb491}
+.colourWarmGrey {  background-color: #968c78}
+.colourLightGrey {  background-color: #cdcdbe}
+.colourOrange { background-color: #c8821e }
+.fontColourWarningRed { color: #CC3333}
+.fontColourBloodRed { color: #96142d}
+.fontColourBurgundy { color: #640023}
+.fontColourDeepBlue { color: #002337}
+.fontColourSourGreen { color: #aacd00}
+.fontColourLightGreyGreen { color: #73877d}
+.fontColourLightBlueGreen { color: #96b4b9}
+.fontColourSand { color: #beb491}
+.fontColourWarmGrey { color: #968c78}
+.fontColourLightGrey { color: #cdcdbe}
+.fontColourOrange { color: #c8821e }
+.linkStatic { font-family: Arial, Helvetica, sans-serif; }
+.linkRed {  }
+a:link {  color: #002337; text-decoration: underline}
+a:visited { color: #002337; text-decoration: underline}
+a:hover {  color: #640023; text-decoration: underline}
+a:active { color: #640023; text-decoration: underline}
+a.linkStatic:link {  color: #002337; text-decoration: underline}
+a.linkStatic:visited { color: #002337; text-decoration: underline}
+a.linkStatic:hover {  color: #640023; text-decoration: underline}
+a.linkStatic:active { color: #640023; text-decoration: underline}
+a.linkStaticKorallen:link { color: #ffffff; text-decoration: underline}
+a.linkStaticKorallen:visited { color: #ffffff; text-decoration: underline}
+a.linkStaticKorallen:hover {  color: #ffffff; text-decoration: underline}
+a.linkStaticKorallen:active { color: #ffffff; text-decoration: underline}
+a.linkRed:link {  color: #96142d; text-decoration: underline}
+a.linkRed:visited { color: #96142d; text-decoration: underline}
+a.linkRed:hover {  color: #640023; text-decoration: underline}
+a.linkRed:active { color: #640023; text-decoration: underline}
+.inputfield { font-size: 10pt; font-family: Arial, Helvetica, sans-serif; border-style: ridge; }
+.tableBody { background-color: #E3E3D3; }
+.tableBodyGreen { background-color: #aacd00; }
+.tableHeader { background-color: #002337; color: #ffffff; font-weight: bold;}
+.textWarning { font-size: 9pt; font-family: Arial, Helvetica, sans-serif; color: #CC3333; font-weight: bold}

@@ -1,0 +1,69 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./Bilder0/icon_snack.png">
+    <title>零食照片下载 Snack Photo Download</title>
+    <style>
+        * { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); transition: background-color 0.5s; }
+        body { margin: 0; padding-bottom: 50px; font-family: sans-serif; }
+        .nav { background: rgba(0, 0, 0, 0.15); padding: 12px 20px; border-radius: 50px; margin: 20px auto; width: fit-content; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        a { text-decoration: none; }
+        .nav a { color: #ffffff; font-weight: bold; font-size: 16px; }
+        img { border-radius: 15px; margin: 10px; cursor: zoom-in; transition: 0.3s; border: 4px solid transparent; }
+        img:hover { transform: scale(1.1); box-shadow: 0 10px 20px rgba(0,0,0,0.3); z-index: 10; }
+        .highlight { border-color: #ffffff !important; transform: scale(1.15); z-index: 20; box-shadow: 0 0 20px #fff; }
+        body.dark-mode { background-color: #2c2c2c !important; }
+        .dark-btn { background: #000; color: #fff; border: none; padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; }
+        #backToTop { position: fixed; bottom: 30px; right: 30px; background: rgba(0,0,0,0.5); color: white; width: 50px; height: 50px; border-radius: 50%; display: none; align-items: center; justify-content: center; cursor: pointer; }
+        #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 1000; cursor: zoom-out; }
+    </style>
+</head>
+<body BGCOLOR="#ff9d4d">
+    <div class="nav">
+        <a href="index.html">🧧 首页 / Home</a>
+        <a href="Seite2.html">🍪 零食 / Snacks</a>
+        <a href="Seite3.html">🥤 饮料 / Beverages</a>
+        <button class="dark-btn" onclick="toggleDarkMode()">🌓 模式 / Mode</button>
+    </div>
+    <center>
+        <h1><font color="#ffffff">零食 / Snack</font></h1>
+        <button style="background:#fff; color:#ff7300; border:none; padding:10px 20px; border-radius:25px; font-weight:bold; cursor:pointer; font-size:16px;" onclick="pickRandom()">🎰 帮我选个零食 / Pick a Snack</button>
+        <div id="imageContainer">
+            <img src=".\bilder1\A.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src=".\bilder1\B.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src=".\bilder1\C.jpg" width="20%" onclick="openLightbox(this.src)">
+            <br/>
+            <img src=".\bilder1\D.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src=".\bilder1\E.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src=".\bilder1\f.jpg" width="20%" onclick="openLightbox(this.src)">
+            <br/>
+            <img src=".\bilder1\G.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src=".\bilder1\H.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src=".\bilder1\I.jpg" width="20%" onclick="openLightbox(this.src)">
+            <br/>
+            <img src=".\bilder1\J.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src=".\bilder1\K.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src=".\bilder1\L.jpg" width="20%" onclick="openLightbox(this.src)">
+        </div>
+        <br/><br/>
+        <a href="./Bilder2.zip" download><font size="6" color="#ffffff"><b>📦 下载全套零食图库 / Download All</b></font></a>
+    </center>
+    <div id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
+    <div id="lightbox" onclick="this.style.display='none'"><img id="lightboxImg" style="max-width:90%; border-radius:10px;"></div>
+    <script>
+        if(localStorage.getItem('mode')==='dark') document.body.classList.add('dark-mode');
+        function toggleDarkMode() { document.body.classList.toggle("dark-mode"); localStorage.setItem('mode', document.body.classList.contains('dark-mode')?'dark':'light'); }
+        function openLightbox(src){document.getElementById("lightboxImg").src=src;document.getElementById("lightbox").style.display="flex";}
+        window.onscroll=function(){document.getElementById("backToTop").style.display=(window.pageYOffset>300)?"flex":"none";};
+        function pickRandom() {
+            const imgs = document.querySelectorAll('#imageContainer img'); let counter = 0;
+            const interval = setInterval(() => {
+                imgs.forEach(img => img.classList.remove('highlight'));
+                const randomImg = imgs[Math.floor(Math.random() * imgs.length)];
+                randomImg.classList.add('highlight');
+                if (++counter > 20) { clearInterval(interval); setTimeout(() => { openLightbox(document.querySelector('.highlight').src); document.querySelector('.highlight').classList.remove('highlight'); }, 500); }
+            }, 100);
+        }
+    </script>
+</body>
+</html>

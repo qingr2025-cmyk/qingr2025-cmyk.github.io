@@ -1,0 +1,75 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./Bilder0/icon_home.png">
+    <title>新年图片下载 New Year Photo Download</title>
+    <style>
+        * { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); transition: background-color 0.5s; }
+        body { margin: 0; padding-bottom: 50px; font-family: sans-serif; }
+        .nav { background: rgba(255, 255, 255, 0.2); padding: 12px 20px; border-radius: 50px; margin: 20px auto; width: fit-content; display: flex; gap: 15px; text-shadow: none; flex-wrap: wrap; justify-content: center; }
+        a { text-decoration: none; }
+        .nav a { color: #ffff00; font-weight: bold; font-size: 16px; }
+        #musicBtn { animation: pulse 2s infinite; border-radius: 30px; text-shadow: none; background-color: #ffff00; color: #ff0000; border: none; padding: 12px 25px; font-weight: bold; cursor: pointer; font-size: 18px; }
+        @keyframes pulse { 0% { transform: scale(1); } 70% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        img { border-radius: 20px; margin: 10px; cursor: zoom-in; transition: 0.3s; }
+        img:hover { transform: scale(1.1); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); z-index: 10; }
+        body.dark-mode { background-color: #1a1a1a !important; }
+        .dark-btn { background: #ffff00; color: #ff0000; border: none; padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; }
+        #backToTop { position: fixed; bottom: 30px; right: 30px; background: rgba(0,0,0,0.5); color: white; width: 50px; height: 50px; border-radius: 50%; display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 100; }
+        #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 1000; cursor: zoom-out; }
+        #lightbox img { max-width: 90%; max-height: 90%; border-radius: 10px; }
+    </style>
+</head>
+<body BGCOLOR="#ff0000">
+    <div class="nav">
+        <a href="index.html">🧧 首页 / Home</a>
+        <a href="Seite2.html">🍪 零食 / Snacks</a>
+        <a href="Seite3.html">🥤 饮料 / Beverages</a>
+        <button class="dark-btn" onclick="toggleDarkMode()">🌓 模式 / Mode</button>
+    </div>
+    <center>
+        <h1><font color="#ffff00">新年快乐!</font></h1>
+        <h1><font color="#ffff00">Happy New Year!</font></h1>
+        <div style="margin: 20px 0;">
+            <button id="musicBtn" onclick="toggleMusic()">🎵 播放音乐 / Play Music</button>
+        </div>
+        <div id="imageContainer">
+            <img src="./Bilder0/1.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src="./Bilder0/2.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src="./Bilder0/3.jpg" width="20%" onclick="openLightbox(this.src)">
+            <br/>
+            <img src="./Bilder0/4.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src="./Bilder0/5.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src="./Bilder0/6.jpg" width="20%" onclick="openLightbox(this.src)">
+            <br/>
+            <img src="./Bilder0/7.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src="./Bilder0/8.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src="./Bilder0/9.jpg" width="20%" onclick="openLightbox(this.src)">
+        </div>
+        <br/><br/>
+        <a href="./Bilder1.zip" download><font size="5" color="#ffff00"><b>🧧 下载新年图片集 / Download</b></font></a>
+        <br/><br/>
+        <font color="#ffff00"><a href="https://www.lcy.net/" target="_blank" style="color: #ffff00; font-weight: bold; font-size: 18px;">🌐 LCY Homepage</a></font>
+        <br/><br/>
+        <font color="#ffff00"><a href="mailto:qingr2025@gmail.com" style="color: #ffff00;">给我写信吧 / Write to me</a></font>
+        <br/><img src="./Bilder0/EmailAnim.gif" width="17%" style="border-radius: 0;">
+    </center>
+    <div id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
+    <div id="lightbox" onclick="this.style.display='none'"><img id="lightboxImg"></div>
+    <audio id="bgMusic" loop><source src="./Bilder0/NewYearSong.mp3" type="audio/mpeg"></audio>
+    <script>
+        if(localStorage.getItem('mode')==='dark') document.body.classList.add('dark-mode');
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+            localStorage.setItem('mode', document.body.classList.contains('dark-mode')?'dark':'light');
+        }
+        function openLightbox(src) { document.getElementById("lightboxImg").src = src; document.getElementById("lightbox").style.display = "flex"; }
+        window.onscroll = function() { document.getElementById("backToTop").style.display = (window.pageYOffset > 300) ? "flex" : "none"; };
+        var audio = document.getElementById("bgMusic"); var mBtn = document.getElementById("musicBtn");
+        function toggleMusic() {
+            if (audio.paused) { audio.play(); mBtn.innerHTML = "⏸ 暂停音乐 / Pause"; mBtn.style.backgroundColor = "#ffffff"; }
+            else { audio.pause(); mBtn.innerHTML = "🎵 播放音乐 / Play"; mBtn.style.backgroundColor = "#ffff00"; }
+        }
+    </script>
+</body>
+</html>

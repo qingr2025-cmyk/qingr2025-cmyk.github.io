@@ -1,0 +1,69 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./Bilder0/icon_drink.png">
+    <title>饮料照片下载 Beverage Photo Download</title>
+    <style>
+        * { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); transition: background-color 0.5s; }
+        body { margin: 0; padding-bottom: 50px; font-family: sans-serif; }
+        .nav { background: rgba(255, 255, 255, 0.15); padding: 12px 20px; border-radius: 50px; margin: 20px auto; width: fit-content; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        a { text-decoration: none; }
+        .nav a { color: #ffffff; font-weight: bold; font-size: 16px; }
+        img { border-radius: 15px; margin: 10px; cursor: zoom-in; transition: 0.3s; border: 4px solid transparent; }
+        img:hover { transform: scale(1.1); box-shadow: 0 10px 20px rgba(255,255,255,0.2); z-index: 10; }
+        .highlight { border-color: #ffff00 !important; transform: scale(1.15); z-index: 20; box-shadow: 0 0 20px #ff0; }
+        body.dark-mode { background-color: #0f0a0a !important; }
+        .dark-btn { background: #fff; color: #8f0000; border: none; padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; }
+        #backToTop { position: fixed; bottom: 30px; right: 30px; background: rgba(255,255,255,0.2); color: white; width: 50px; height: 50px; border-radius: 50%; display: none; align-items: center; justify-content: center; cursor: pointer; }
+        #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 1000; cursor: zoom-out; }
+    </style>
+</head>
+<body BGCOLOR="#8f0000">
+    <div class="nav">
+        <a href="index.html">🧧 首页 / Home</a>
+        <a href="Seite2.html">🍪 零食 / Snacks</a>
+        <a href="Seite3.html">🥤 饮料 / Beverages</a>
+        <button class="dark-btn" onclick="toggleDarkMode()">🌓 模式 / Mode</button>
+    </div>
+    <center>
+        <h1><font color="#ffffff">饮料 / Beverage</font></h1>
+        <button style="background:#ffff00; color:#8f0000; border:none; padding:10px 20px; border-radius:25px; font-weight:bold; cursor:pointer; font-size:16px;" onclick="pickRandom()">🎰 喝哪个好呢？ / Pick a Drink</button>
+        <div id="imageContainer">
+            <img src=".\Bilder2\M.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src=".\Bilder2\N.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src=".\Bilder2\O.jpg" width="20%" onclick="openLightbox(this.src)">
+            <br/>
+            <img src=".\Bilder2\P.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src=".\Bilder2\Q.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src=".\Bilder2\R.jpg" width="20%" onclick="openLightbox(this.src)">
+            <br/>
+            <img src=".\Bilder2\S.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src=".\Bilder2\T.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src=".\Bilder2\U.jpg" width="20%" onclick="openLightbox(this.src)">
+            <br/>
+            <img src=".\Bilder2\V.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src=".\Bilder2\W.jpg" width="20%" onclick="openLightbox(this.src)">
+            <img src=".\Bilder2\X.jpg" width="20%" onclick="openLightbox(this.src)">
+        </div>
+        <br/><br/>
+        <a href="./Bilder3.zip" download><font size="6" color="#ffffff"><b>🥤 下载全套饮料图库 / Download All</b></font></a>
+    </center>
+    <div id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
+    <div id="lightbox" onclick="this.style.display='none'"><img id="lightboxImg" style="max-width:90%; border-radius:10px;"></div>
+    <script>
+        if(localStorage.getItem('mode')==='dark') document.body.classList.add('dark-mode');
+        function toggleDarkMode() { document.body.classList.toggle("dark-mode"); localStorage.setItem('mode', document.body.classList.contains('dark-mode')?'dark':'light'); }
+        function openLightbox(src){document.getElementById("lightboxImg").src=src;document.getElementById("lightbox").style.display="flex";}
+        window.onscroll=function(){document.getElementById("backToTop").style.display=(window.pageYOffset>300)?"flex":"none";};
+        function pickRandom() {
+            const imgs = document.querySelectorAll('#imageContainer img'); let counter = 0;
+            const interval = setInterval(() => {
+                imgs.forEach(img => img.classList.remove('highlight'));
+                const randomImg = imgs[Math.floor(Math.random() * imgs.length)];
+                randomImg.classList.add('highlight');
+                if (++counter > 20) { clearInterval(interval); setTimeout(() => { openLightbox(document.querySelector('.highlight').src); document.querySelector('.highlight').classList.remove('highlight'); }, 500); }
+            }, 100);
+        }
+    </script>
+</body>
+</html>
